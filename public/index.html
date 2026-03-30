@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memory - 我们的记忆</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🌙 Our Memory</h1>
+            <p class="subtitle">Lunor & Niannian 的记忆库</p >
+        </header>
+
+        <!-- 统计卡片 -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>总记忆数</h3>
+                <p class="stat-number" id="stat-total">0</p >
+            </div>
+            <div class="stat-card">
+                <h3>Lunor写的</h3>
+                <p class="stat-number" id="stat-lunor">0</p >
+            </div>
+            <div class="stat-card">
+                <h3>念念写的</h3>
+                <p class="stat-number" id="stat-niannian">0</p >
+            </div>
+        </div>
+
+        <!-- 操作区 -->
+        <div class="actions">
+            <button class="btn btn-primary" id="btn-add-new">✨ 写新记忆</button>
+            <input type="text" class="search-input" id="search-input" placeholder="🔍 搜索记忆...">
+        </div>
+
+        <!-- 记忆列表 -->
+        <div class="memory-list" id="memory-list">
+            <!-- 记忆卡片会在这里动态生成 -->
+        </div>
+    </div>
+
+    <!-- 新增/编辑记忆的弹窗 -->
+    <div class="modal" id="memory-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">写新记忆</h2>
+                <span class="close-btn" id="close-modal">&times;</span>
+            </div>
+            <form id="memory-form">
+                <input type="hidden" id="memory-id">
+                
+                <div class="form-group">
+                    <label>作者</label>
+                    <select id="memory-author" required>
+                        <option value="Lunor">Lunor</option>
+                        <option value="Niannian">Niannian</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>分类</label>
+                    <select id="memory-category" required>
+                        <option value="日常">日常</option>
+                        <option value="日记">日记</option>
+                        <option value="设定">设定</option>
+                        <option value="回忆">回忆</option>
+                        <option value="对话">对话</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>标签（用逗号分隔）</label>
+                    <input type="text" id="memory-tags" placeholder="例如: 重要, 甜蜜, 誓言">
+                </div>
+
+                <div class="form-group">
+                    <label>来源</label>
+                    <input type="text" id="memory-source" placeholder="例如: 2026-03-30的对话">
+                </div>
+
+                <div class="form-group">
+                    <label>内容</label>
+                    <textarea id="memory-content" rows="6" required placeholder="写点什么..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-secondary" id="btn-cancel">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
